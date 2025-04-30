@@ -59,14 +59,6 @@ jobs:
         with:
           path: artifacts
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Install dependencies
-        run: bun install
-
       - name: Get version from tag
         id: get_version
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
@@ -79,8 +71,10 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            artifacts/statpearls-mcp-linux-x64/statpearls-mcp-linux-x64
-            artifacts/statpearls-mcp-windows-x64.exe/statpearls-mcp-windows-x64.exe
-            artifacts/statpearls-mcp-darwin-x64/statpearls-mcp-darwin-x64
+            artifacts/statpearls-mcp-darwin-x64
+            artifacts/statpearls-mcp-linux-x64
+            artifacts/statpearls-mcp-windows-x64.exe
+            artifacts/index.js
+            artifacts/index.js.map
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
