@@ -1,0 +1,34 @@
+{
+  "name": "statpearls-mcp",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "bun scripts/build.ts",
+    "build:dev": "bun scripts/build.ts --dev",
+    "build:prod": "bun scripts/build.ts",
+    "start": "bun src/index.ts",
+    "compile": "bun scripts/compile.ts",
+    "compile:linux": "bun scripts/compile.ts linux",
+    "compile:windows": "bun scripts/compile.ts windows",
+    "compile:mac": "bun scripts/compile.ts darwin",
+    "compile:all": "bun scripts/compile.ts all",
+    "release:patch": "bun scripts/release.ts patch",
+    "release:minor": "bun scripts/release.ts minor",
+    "release:major": "bun scripts/release.ts major",
+    "version": "bun scripts/version.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.1",
+    "@types/turndown": "^5.0.5",
+    "cheerio": "^1.0.0",
+    "turndown": "^7.2.0"
+  }
+}
