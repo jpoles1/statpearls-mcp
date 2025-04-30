@@ -72,10 +72,10 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            artifacts/statpearls-mcp-darwin-x64
-            artifacts/statpearls-mcp-linux-x64
-            artifacts/statpearls-mcp-windows-x64.exe
-            artifacts/index.js
-            artifacts/index.js.map
+            artifacts/statpearls-mcp-darwin-x64/statpearls-mcp-darwin-x64
+            artifacts/statpearls-mcp-linux-x64/statpearls-mcp-linux-x64
+            artifacts/statpearls-mcp-windows-x64.exe/statpearls-mcp-windows-x64.exe
+            artifacts/statpearls-mcp-linux-x64/index.js
+            artifacts/statpearls-mcp-linux-x64/index.js.map
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

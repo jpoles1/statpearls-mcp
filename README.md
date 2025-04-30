@@ -7,18 +7,8 @@ A Model Context Protocol (MCP) server that fetches disease information from Stat
 - Search for diseases and medical conditions on StatPearls
 - Retrieve comprehensive, reliable medical information
 - Convert HTML content to well-formatted Markdown
-- Filter out non-essential sections like references and author information
+- Filter out non-essential sections
 - Easily integrate with LLMs via the Model Context Protocol
-
-"statpearls": {
-      "command": "node",
-      "args": [
-        "/home/jpoles1/dev/statpearls-mcp/dist/index.js"
-      ],
-      "alwaysAllow": [
-        "statpearls_disease_info"
-      ]
-    },
 
 ## Installation
 
