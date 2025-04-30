@@ -25,12 +25,27 @@ The easiest way to get up and running is to download the appropriate executable/
 
 Place this executable in a directory of your choice. Then simply add the following to your `mcp_settings.json` file:
 
+#### For Windows:
+
 ```json
 {
   "mcpServers": {
     ...
     "statpearls": {
-      "command": "{path_to_executable_here}/statpearls-mcp.exe"
+      "command": "{path_to_executable_here}\\statpearls-mcp.exe"
+    },
+    ...
+  }
+}
+
+#### For Mac/Linux:
+
+```json
+{
+  "mcpServers": {
+    ...
+    "statpearls": {
+      "command": "{path_to_executable_here}/statpearls-mcp"
     },
     ...
   }
