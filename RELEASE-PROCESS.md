@@ -26,18 +26,6 @@ The StatPearls MCP Server uses GitHub Actions for automated builds and releases.
 
 4. Once the GitHub Actions workflow completes, you can download the executables from the GitHub release page.
 
-## Cleaning Git History
-
-If you need to remove executables from the Git history (e.g., after migrating from Git LFS), you can use the provided script:
-
-```
-./scripts/clean-git-history.sh
-```
-
-This script uses the BFG Repo-Cleaner to remove executables from the Git history. It requires Java to be installed.
-
-**IMPORTANT**: This is a destructive operation that rewrites Git history. All collaborators should reclone the repository after this operation.
-
 ## Development Workflow
 
 1. Install dependencies:
