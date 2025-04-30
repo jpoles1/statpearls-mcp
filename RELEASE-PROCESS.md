@@ -61,3 +61,18 @@ The workflow:
 2. Compiles executables for all supported platforms
 3. Creates a GitHub release
 4. Attaches the executables to the release
+
+### Workflow Implementation Details
+
+The workflow uses the following GitHub Actions:
+- `actions/checkout@v4`: Checks out the repository code
+- `oven-sh/setup-bun@v1`: Sets up Bun for building and compiling
+- `actions/upload-artifact@v4`: Uploads compiled executables as artifacts
+- `actions/download-artifact@v4`: Downloads artifacts for release
+- `softprops/action-gh-release@v1`: Creates a GitHub release with the executables
+
+The workflow is split into two jobs:
+1. `build`: Compiles executables for each platform (Linux, Windows, macOS)
+2. `release`: Creates a GitHub release and attaches the executables
+
+If you encounter any issues with the workflow, check the GitHub Actions logs for details.

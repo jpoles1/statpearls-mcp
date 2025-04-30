@@ -6,12 +6,16 @@
 - **How it should work**: The server accepts a disease query, searches StatPearls via NCBI, selects the most relevant result, retrieves the full content, converts it to markdown (excluding standard sections like References and Author Information), and returns the formatted information to the LLM.
 
 ## Active Context
-- **What you're working on now**: Rewriting the release architecture to use GitHub Actions instead of Git LFS.
+- **What you're working on now**: Fixed GitHub Actions workflow for releases.
 - **Recent changes**:
-  - Created GitHub Actions workflow for building and releasing executables
-  - Updated .gitignore to exclude executables from Git
-  - Modified release script to focus on version bumping and tagging
-  - Created script to clean executables from Git history
+  - Updated GitHub Actions workflow to use latest versions of actions (v4 instead of v3)
+  - Fixed "Missing download info for actions/upload-artifact@v3" error
+  - Updated RELEASE-PROCESS.md with more detailed workflow information
+  - Previously:
+    - Created GitHub Actions workflow for building and releasing executables
+    - Updated .gitignore to exclude executables from Git
+    - Modified release script to focus on version bumping and tagging
+    - Created script to clean executables from Git history
 - **Next steps**:
   - Run the clean-git-history.sh script to remove executables from Git history
   - Push changes to GitHub
