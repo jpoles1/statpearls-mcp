@@ -1,40 +1,63 @@
 # StatPearls MCP Server
 
-A Model Context Protocol (MCP) server that fetches disease information from StatPearls, a trusted source of peer-reviewed medical content.
+A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that fetches disease information from [StatPearls](https://www.ncbi.nlm.nih.gov/books/NBK430685/), a trusted source of peer-reviewed medical content.
+
+Give your AI system a relaible source of medical knowledge for its next conversation.
 
 ## Features
 
-- Search for diseases and medical conditions on StatPearls
-- Retrieve comprehensive, reliable medical information
-- Convert HTML content to well-formatted Markdown
-- Filter out non-essential sections
-- Easily integrate with LLMs via the Model Context Protocol
+- Searches for diseases and medical conditions on StatPearls
+- Retrieve comprehensive, reliable medical information from StatPearls
+- Convert HTML content to well-formatted Markdown to make it AI-friendly
+- Integrates with AI models via the Model Context Protocol
+
+### If you don't already have a Model Context Protocol (MCP) client:
+
+If you are a casual user, you can use [Claude Desktop](https://modelcontextprotocol.io/quickstart/user) to get started using MCP servers. It is a free and open-source desktop application that allows you to run MCP servers locally and connect to them.
+
+If you are a power user/developer, I recommend using VSCode with the [RooCode](https://docs.roocode.com/) extension which enables you to connect in [MCP servers](https://docs.roocode.com/features/mcp/what-is-mcp) to your development environment for infinite possibilities!
 
 ## Installation
 
-```bash
-# Install dependencies
-bun install
+Once you have an MCP-capable AI client, you can run this server locally.
+
+The easiest way to get up and running is to download the appropriate executable/binary for your OS from the [releases page](https://github.com/jpoles1/statpearls-mcp/releases). This will give you a self-contained executable that you can run without any additional setup.
+
+Place this executable in a directory of your choice. Then simply add the following to your `mcp_settings.json` file:
+
+```json
+{
+  "mcpServers": {
+    ...
+    "statpearls": {
+      "command": "{path_to_executable_here}/statpearls-mcp.exe"
+    },
+    ...
+  }
+}
 ```
 
-## Usage
+### For Developers:
 
-### Running with Bun
-
-```bash
-# Start the server
-bun start
-```
-
-### Building for Node.js
-
-```bash
-# Build the server
-bun run build
-
-# Run the built server with Node.js
-node dist/index.js
-```
+You can also run the server from source. This requires [Bun](https://bun.sh/) to be installed on your system.
+  1. Clone the repository
+  2. Install dependencies (`bun install`)
+  3. Compile the server (`bun run build`)
+  4. Now you can add the server to your `mcp_settings.json` file:
+  ```json
+  {
+    "mcpServers": {
+      ...
+      "statpearls": {
+        "command": "node",
+        "args": [
+          "{path_to_proj_here}/dist/index.js"
+        ]
+      },
+      ...
+    }
+  }
+  ```
 
 ## Tool Definition
 
@@ -73,8 +96,11 @@ The tool returns formatted Markdown content with:
 
 ```
 statpearls-mcp/
-├── src/
+├── src/                         # Source code
 │   ├── index.ts                 # Main entry point and server setup
+│   ├── test-html-parser.ts      # Test utility for HTML parser
+│   ├── test-statpearls-parser.ts # Test utility for StatPearls parser
+│   ├── testrun.ts               # Test runner utility
 │   ├── tools/                   # Tool definitions and handlers
 │   │   └── statpearls.ts        # StatPearls tool definition and handler
 │   ├── services/                # Core functionality services
@@ -82,14 +108,23 @@ statpearls-mcp/
 │   │   ├── content.ts           # Content retrieval and processing
 │   │   └── markdown.ts          # HTML to Markdown conversion
 │   ├── types/                   # Type definitions
-│   │   └── index.ts             # Common type definitions
+│   │   ├── index.ts             # Common type definitions
+│   │   └── statpearls.ts        # StatPearls-specific type definitions
 │   └── utils/                   # Utility functions
 │       ├── html.ts              # HTML parsing utilities
-│       └── error.ts             # Error handling utilities
-├── dist/                        # Build output directory
+│       ├── error.ts             # Error handling utilities
+│       └── statpearls-parser.ts # StatPearls content parsing utilities
 ├── scripts/                     # Build and utility scripts
-│   └── build.ts                 # Build script for creating Node.js compatible bundle
-└── cline_docs/                  # Project documentation
+│   ├── build.ts                 # Build script for creating Node.js compatible bundle
+│   ├── compile.ts               # Script for compiling executables
+│   ├── release.ts               # Script for handling releases
+│   └── version.ts               # Script for managing versioning
+├── dist/                        # Build output directory (not in repository)
+├── package.json                 # Project configuration and dependencies
+├── tsconfig.json                # TypeScript configuration
+├── bun.lock                     # Bun dependency lock file
+├── README.md                    # Main project documentation
+└── RELEASE-PROCESS.md           # Documentation for release process
 ```
 
 ### Building and Releasing
