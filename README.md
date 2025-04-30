@@ -11,6 +11,8 @@ Give your AI system a relaible source of medical knowledge for its next conversa
 - Convert HTML content to well-formatted Markdown to make it AI-friendly
 - Integrates with AI models via the Model Context Protocol
 
+![Image](StatPearlsMCPDemo.gif)
+
 ### If you don't already have a Model Context Protocol (MCP) client:
 
 If you are a casual user, you can use [Claude Desktop](https://modelcontextprotocol.io/quickstart/user) to get started using MCP servers. It is a free and open-source desktop application that allows you to run MCP servers locally and connect to them.
