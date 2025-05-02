@@ -1,5 +1,7 @@
 # StatPearls MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@jpoles1/statpearls-mcp)](https://smithery.ai/server/@jpoles1/statpearls-mcp)
+
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server that fetches disease information from [StatPearls](https://www.ncbi.nlm.nih.gov/books/NBK430685/), a trusted source of peer-reviewed medical content.
 
 Give your AI system a relaible source of medical knowledge for its next conversation.
@@ -52,6 +54,14 @@ Place this executable in a directory of your choice. Then simply add the followi
     ...
   }
 }
+```
+
+### Installing via Smithery
+
+To install statpearls-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@jpoles1/statpearls-mcp):
+
+```bash
+npx -y @smithery/cli install @jpoles1/statpearls-mcp --client claude
 ```
 
 ### For Developers:
